@@ -6,7 +6,7 @@ import CartWidget from "../CartWidget/CartWidget";
 
 function NavBar() {
   return (
-    <nav className="container bg-dark d-flex text-white mt-1 h-2">
+    <nav className="container-fluid bg-dark d-flex text-white mt-1 h-2">
       <div className="containerLogo mt-1" >
         <a className=" navbar-brand d-flex align-items-baseline navbarLogo" href="#">
           <img className="logo" src={logo} alt="Logo"></img>
