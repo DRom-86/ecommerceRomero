@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react'
 import ItemList from './ItemList'
 
 
-const DBArticles = [
+const dBArticles = [
   {
     "id":1,
     "name":"Adhesivo",
@@ -52,7 +52,7 @@ const DBArticles = [
 function obtenerBD(){
 return new Promise( (resolve, reject) => {
   setTimeout(
-    ()=> { resolve(DBArticles)}
+    ()=> { resolve(dBArticles)}
     ,3000)
     }
 )

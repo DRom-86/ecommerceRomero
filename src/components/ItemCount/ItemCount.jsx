@@ -20,15 +20,15 @@ export default function ItemCount({initial, stock}){
     }
 
   return (
-    <div className='container pt-4 w-25 mt-5 border'>
-        <div className='container d-flex justify-content-around'>
-            <button className='btn btn-danger' onClick={decrement}>Quitar</button>
+    <div className='container w-100 mt-5'>
+        <div className='container d-flex justify-content-between align-items-baseline'>
+            <button className='btn w-25 btn-danger' onClick={decrement}>-</button>
             <p className='mx-2'><b>{count}</b></p>
-            <button className='btn btn-success' onClick={increment}>Agregar</button>
+            <button className='btn btn-success' onClick={increment}>+</button>
         </div><br/>
-        <div className='pb-4 text-center'>
+        {/* <div className='pb-4 text-center'>
             <button className='btn btn-dark' onClick= {onAdd}>Revisar</button>
-        </div>
+        </div> */}
     </div>
   )
 }
