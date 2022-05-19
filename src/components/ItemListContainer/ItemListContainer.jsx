@@ -1,85 +1,32 @@
-import React, { useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import ItemList from './ItemList'
+import {getData}from '../../db/db.js'
+import { useParams } from 'react-router-dom';
 
 
-const dBArticles = [
-  {
-    "id":1,
-    "name":"Adhesivo",
-    "description":"vinilico 50gr",
-    "brand":"Sta",
-    "price": "10",
-    "category":"escolar",
-    "stock":"6"
-  },
-  {
-    "id":2,
-    "name":"Lapiz",
-    "description":"Grafito",
-    "brand":"Maped",
-    "price": "10",
-    "category":"escolar",
-    "stock":"10"
-  },
-  {
-    "id":3,
-    "name":"resma",
-    "description":"A4 70gr",
-    "brand":"Autor",
-    "price": "10",
-    "category":"comercial",
-    "stock":"5"
-  },
-  {
-    "id":4,
-    "name":"Corrector",
-    "description":"Punta metal 7mm",
-    "brand":"Filgo",
-    "price": "10",
-    "category":"escolar",
-    "stock":"20"
-  },
-  {
-    "id":5,
-    "name":"Regla",
-    "description":"15cm acrilico",
-    "brand":"Maped",
-    "price": "10",
-    "category":"escolar",
-    "stock":"15"
-  }]    
 
-function obtenerBD(){
-return new Promise( (resolve, reject) => {
-  setTimeout(
-    ()=> { resolve(dBArticles)}
-    ,3000)
-    }
-)
-}
+const ItemListContainer = (props)=>{
+    const [items, setItems] = useState([]);
 
-export function ItemListContainer(props) {
+    const param = useParams();
+    console.log(param)
 
-  const [items, setItems] = useState([]);
-
-  useEffect(()=>{
-      let requestDatos = obtenerBD();
-      
-      requestDatos.then ((itemsPromise)=>{
-        setItems(itemsPromise);
-      }).catch ((errorMsg)=>{
-        console.log(errorMsg);
-      }).finally(()=>{
-        console.log("Promesa terminada");
-      })
-   },[])
+    useEffect(()=>{
+        getData()
+        .then ((itemsPromise)=>{
+          setItems(itemsPromise);
+        }).catch ((errorMsg)=>{
+          console.log(errorMsg);
+        }).finally(()=>{
+          console.log("promesa terminada");
+        })
+    },[])
 
   return (
-    <div className='mt-4 text-center'>
+    
+    <div className='mt-4'>
         <h1>{props.title}</h1>
-        <div className='container'>
-          <ItemList items={items}/>
-        </div>
+        <ItemList items={items}/>
     </div>
   )
 };

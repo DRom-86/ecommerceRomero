@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function ItemCount({initial, stock}){
+const ItemCount = ({initial, stock}) => {
     const [count, setCount] = useState(initial)
 
     function increment (){
@@ -32,3 +32,4 @@ export default function ItemCount({initial, stock}){
     </div>
   )
 }
+export default ItemCount;

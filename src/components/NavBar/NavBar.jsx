@@ -4,21 +4,28 @@ import logo from "../../assets/imgs/logo.jpg"
 import "./NavBar.css"
 import CartWidget from "../CartWidget/CartWidget";
 
+import {NavLink} from "react-router-dom";
+
 function NavBar() {
   return (
     <nav className="container-fluid bg-dark d-flex text-white mt-1 h-2">
       <div className="containerLogo mt-1" >
-        <a className=" navbar-brand d-flex align-items-baseline navbarLogo" href="#">
+        <NavLink to="/"className=" navbar-brand d-flex align-items-baseline navbarLogo">
           <img className="logo" src={logo} alt="Logo"></img>
           <h1 className="titleLogo text-white my-3">DISTRIBUIDORA DROM</h1>
-        </a>
+        </NavLink>
       </div>
       <div className="container ">
         <ul className="list-unstyled d-flex justify-content-around navbar-bar my-3 w-75 m-auto">
-          <li className="nav-item border-bottom"> <a className="text-decoration-none text-reset p-3" href="#">Nosotros</a></li>
-          <li className="nav-item border-bottom"> <a className="text-decoration-none text-reset p-3" href="#">Productos</a></li>
-          <li className="nav-item border-bottom"> <a className="text-decoration-none text-reset p-3" href="#">Ingresar</a> </li>
-          <li className="nav-item border-bottom"> <a className="text-decoration-none text-reset p-3" href="#">Contacto</a> </li>
+          <NavLink to="/About" className="nav-item"> Nosotros</NavLink>
+          <NavLink to="/Articles" className="nav-item">Galeria</NavLink>
+            {/* <ul>
+              <NavLink className="nav-item border-bottom">Escolar</Link>
+              <NavLink className="nav-item border-bottom">Comercial</Link>
+              <NavLink className="nav-item border-bottom">Papeleria</Link>
+            </ul> */}
+          <NavLink  to="/SignIn"className="nav-item">Ingresar</NavLink>
+          <NavLink to="/Contact"className="nav-item">Contacto</NavLink>
         </ul>
       </div>
       <CartWidget/>
